@@ -5,7 +5,7 @@ What is it?
 This is a framework for the Volz Miller equations which is an approach to static or dynamic modelling of disease on a heterogenous network. At the moment the package contains the following models;
 - Volz Static Random Network Model  
 - Volz Meyers Neighbour Exchange Network Model
-- EBCM
+- Edge Based Compartmental Model (EBCM); Static Configuration Model Network
 - EBCM: Mean Field Social Heterogeneity
 - EBCM: Dyanmic Fixed Degree
 
@@ -25,16 +25,17 @@ The intro to Edge Based Compartmental Model Framework can found here:
 Further Reading:
 To learn more about creating these systems the following books have been incredibly useful in developing understanding:
 > Epidemics on Networks (book and python package) https://link.springer.com/book/10.1007/978-3-319-50806-1
-Dynamical Systems on Networks https://link.springer.com/book/10.1007/978-3-319-26641-1
+
+> Dynamical Systems on Networks https://link.springer.com/book/10.1007/978-3-319-26641-1
 
 # Documentation
 
 The package was designed to be easy to use out of the box, once installed you import and instantiate the model which you want to use. When instantiating the model you will need to pass it either the probability generating function and its first and second derivative - you can write this yourself or use the poisson or powerlaw with max degree cut off which is included in the package. Or you can even pass a networkx.Graph object or a dictionary which details the degree distribution. Then you will pass the max number of time steps and $epsilon$ which is the fraction who start infected.
 
-After this it is just running `model.run_simulation(kwargs)` passing the necessary arguments for the respective model. This will return a numpy array object. This object can be visualised using the `SimulatiViz` script which has been included. Where either;
-    - the entire results can be viewed
-    - just the SIR
-    - the cumulative incidence
+After this it is just running `model.run_simulation(kwargs)` passing the necessary arguments for the respective model. This will return a results class, this class has visualisation methods which can display;
+    - Each Compartment Over Time
+    - The SIR Compartments
+    - The Cumulative Incidence
     
 When comparing different simulation runs there are also functions which can be used to compare each of the cumulative incidences.
 
