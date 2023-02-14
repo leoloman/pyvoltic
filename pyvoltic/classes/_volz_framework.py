@@ -26,9 +26,7 @@ class VolzFramework(ABC):
         G=None,
         degree_dist=None,
     ):
-        self.epsilon = epsilon
-        self.time = list(range(time))
-
+       
         if isinstance(G, nx.Graph):
             degree_dist_dev_G = pgf.get_Pk(G)
             self.calc_g = pgf.get_PGF(degree_dist_dev_G)
