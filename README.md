@@ -24,7 +24,8 @@ To learn more about creating these systems the following books have been incredi
 > [Epidemics on Networks (book and python package)](https://link.springer.com/book/10.1007/978-3-319-50806-1)
 > 
 > [Dynamical Systems on Networks](https://link.springer.com/book/10.1007/978-3-319-26641-1)
-
+>
+>[A primer on the use of probability generating functions in infectious disease modeling](https://arxiv.org/abs/1803.05136)
 # Documentation
 
 The package was designed to be easy to use out of the box, once installed you import and instantiate the model which you want to use. When instantiating the model you will need to pass it either the probability generating function and its first and second derivative - you can write this yourself or use the poisson or powerlaw with max degree cut off which is included in the package. Or you can even pass a networkx.Graph object or a dictionary which details the degree distribution. Then you will pass the max number of time steps and $epsilon$ which is the fraction who start infected.

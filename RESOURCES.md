@@ -13,6 +13,9 @@ This is a page which will cover further resources to read more about the Edge Ba
 
 https://arxiv.org/pdf/1106.6319
 
+### Indepth tutorial of probability generating functions
+[A primer on the use of probability generating functions in infectious disease modeling](https://arxiv.org/abs/1803.05136)
+
 ### Additional
 
 https://pubmed.ncbi.nlm.nih.gov/23990880/
