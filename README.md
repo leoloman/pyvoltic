@@ -45,13 +45,13 @@ The class structure VolzFramework is designed to be a flexible approach in imple
 Future Implementation Plans:
 
 Continue Implementing Edge Based Compartmental Models:
-https://royalsocietypublishing.org/doi/10.1098/rsif.2011.0403
-
-https://arxiv.org/pdf/1106.6320
-
-https://arxiv.org/abs/1106.6319
-
-https://arxiv.org/abs/1106.6344
+> https://royalsocietypublishing.org/doi/10.1098/rsif.2011.0403
+>
+> https://arxiv.org/pdf/1106.6320
+> 
+> https://arxiv.org/abs/1106.6319
+>
+> https://arxiv.org/abs/1106.6344
 
 
 ## Dependencies
