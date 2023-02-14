@@ -169,7 +169,9 @@ class DynamicFixedDegree(VolzFramework):
             args=(beta, eta, gamma, self.calc_g, self.calc_g1, self.calc_g2),
         )
         
-        output = np.hstack((output, np.array([[calc_g(x)] for x in output[:,0]])) # susceptible col
+        susceptible = np.array([[calc_g(x)] for x in output[:,0]])
+        
+        output = np.hstack((output, susceptible)) # susceptible col
 
         output = np.hstack((output,1 - output[:,4] - output[:,5]))
         
