@@ -156,7 +156,7 @@ class DynamicFixedDegree(VolzFramework):
         Run a single simulation using scipy odeint function
         """
 
-        initial_states = self._set_initial_states(eta)
+        initial_states = self._set_initial_states(epsilon, eta)
 
         r0 = self.calc_r0(beta, eta, gamma)
 
@@ -165,15 +165,16 @@ class DynamicFixedDegree(VolzFramework):
         output = sp_int.odeint(
             self.ode,
             initial_states,
-            self.time,
+            time,
             args=(beta, eta, gamma, self.calc_g, self.calc_g1, self.calc_g2),
         )
         
-        susceptible = np.array([[calc_g(x)] for x in output[:,0]])
+        susceptible = np.array([[self.calc_g(x)] for x in output[:,0]])
         
         output = np.hstack((output, susceptible)) # susceptible col
-
-        output = np.hstack((output,1 - output[:,4] - output[:,5]))
+       
+        infected = np.array([[1 - x[4] - x[5]] for x in output])
+        output = np.hstack((output, infected ))
         
         # implement DFDResults
         # add all aspects of the compartments
