@@ -11,7 +11,7 @@ This is a framework for the Volz Miller equations which is an approach to static
 
 This package aims to help people make use of these very powerful models by allowing the user to pass their own probability generating functions, as well as make use of those which are included in the package. 
 
-This package would not have been possible without the incredible work done by Erik Volz (https://github.com/emvolz), Lauren Ancel Meyers (https://scholar.google.com/citations?user=KKiQaBoAAAAJ&hl=en) and Joel C Miller (https://github.com/joelmiller). It is encouraged to follow and read their papers to better understand these models.
+This package would not have been possible without the incredible work done by [Erik Volz](https://github.com/emvolz), [Lauren Ancel Meyers](https://scholar.google.com/citations?user=KKiQaBoAAAAJ&hl=en) and [Joel C Miller](https://github.com/joelmiller). It is encouraged to follow and read their papers to better understand these models.
 
 > [Volz Static Random Network Model](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7080148/pdf/285_2007_Article_116.pdf)
 >
