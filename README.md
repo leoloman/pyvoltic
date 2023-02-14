@@ -24,7 +24,7 @@ The intro to Edge Based Compartmental Model Framework can found here:
 
 Further Reading:
 To learn more about creating these systems the following books have been incredibly useful in developing understanding:
-> [Epidemics on Networks (book and python package)] (https://link.springer.com/book/10.1007/978-3-319-50806-1)
+> [Epidemics on Networks (book and python package)](https://link.springer.com/book/10.1007/978-3-319-50806-1)
 > 
 > [Dynamical Systems on Networks](https://link.springer.com/book/10.1007/978-3-319-26641-1)
 
