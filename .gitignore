@@ -32,3 +32,4 @@ wheels/
 *.egg
 MANIFEST
 
+.DS_Store
