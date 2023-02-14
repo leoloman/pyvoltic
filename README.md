@@ -33,8 +33,11 @@ To learn more about creating these systems the following books have been incredi
 The package was designed to be easy to use out of the box, once installed you import and instantiate the model which you want to use. When instantiating the model you will need to pass it either the probability generating function and its first and second derivative - you can write this yourself or use the poisson or powerlaw with max degree cut off which is included in the package. Or you can even pass a networkx.Graph object or a dictionary which details the degree distribution. Then you will pass the max number of time steps and $epsilon$ which is the fraction who start infected.
 
 After this it is just running `model.run_simulation(kwargs)` passing the necessary arguments for the respective model. This will return a results class, this class has visualisation methods which can display;
+
     - Each Compartment Over Time
+
     - The SIR Compartments
+
     - The Cumulative Incidence
     
 When comparing different simulation runs there are also functions which can be used to compare each of the cumulative incidences.
