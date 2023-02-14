@@ -5,8 +5,8 @@ import numpy as np
 import networkx as nx
 import types
 
-from VolzFramework import VolzFramework
-from SimulatiViz import SRResults, NEResults
+from pyvoltic.classes import VolzFramework
+from pyvoltic.results import SRResults, NEResults
 
 
 class SIRNE(VolzFramework):
