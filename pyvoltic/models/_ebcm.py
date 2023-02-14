@@ -17,7 +17,7 @@ class EBCM(VolzFramework):
 
     __doc__ += VolzFramework.__doc__
 
-    def _set_initial_states(self):
+    def _set_initial_states(self, epsilon):
         """
         Set the initial states
         """
