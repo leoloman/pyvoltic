@@ -4,7 +4,7 @@ import numpy as np
 import networkx as nx
 import types
 from abc import ABC, abstractmethod
-
+import pyvoltic.probability_generating_functions as pgf
 
 class VolzFramework(ABC):
     """
