@@ -11,6 +11,10 @@ This is a page which will cover further resources to read more about the Edge Ba
 
 
 ## Books:
-[Epidemics on Networks (book and python package)](https://link.springer.com/book/10.1007/978-3-319-50806-1)
+[Epidemics on Networks](https://link.springer.com/book/10.1007/978-3-319-50806-1)
 
 [Dynamical Systems on Networks](https://link.springer.com/book/10.1007/978-3-319-26641-1)
+
+
+## Python Packages
+[Epidemics on Networks](https://github.com/springer-math/Mathematics-of-Epidemics-on-Networks)
