@@ -1,5 +1,5 @@
-from .sim_results import SimResults
-from .volz_framework import VolzFramework
+from ._sim_results import SimResults
+from ._volz_framework import VolzFramework
 
 __all__ = ["SimResults", 
     "VolzFramework", 
