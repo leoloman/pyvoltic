@@ -1,9 +1,5 @@
-import poisson_pgf as p_pgf
-import powerlaw_pgf as pl_pgf
-import probability_generating_function as pgf
 import scipy.integrate as sp_int
 import matplotlib.pyplot as plt
-import SimulatiViz as sv
 import numpy as np
 import networkx as nx
 import types
