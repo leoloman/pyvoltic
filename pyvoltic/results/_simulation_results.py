@@ -13,6 +13,7 @@ class EBCMResults(SimResults):
     
     def cumulative_incidence(self):
         plt.plot(self.output[:,1]+self.output[:,3], label = 'R')
+        plt.ylim(0, 1.05)
         plt.legend()
     
     
@@ -82,6 +83,7 @@ class NEResults(SimResults):
                 label= label, 
                 ls = linestyle)
         ax.legend()
+        ax.set_ylim(0, 1.05)
         ax.set_title(title)
         plt.show()
         
@@ -140,16 +142,29 @@ class SRResults(SimResults):
             figsize:tuple - plot size
         """
         fig, ax = plt.subplots(figsize =figsize)
-        ax.plot(1 - (self.output[:,4]+self.output[:,3]) + output[:,4], 
+        ax.plot(1 - (self.output[:,4]+self.output[:,3]) + self.output[:,4], 
                 alpha = 0.5, 
                 c = color,
                 label= label, 
                 ls = linestyle)
         ax.legend()
+        ax.set_ylim(0, 1.05)
         ax.set_title(title)
         plt.show()
         
     def full_simulation(self, title: str = '', figsize:tuple = (12,5), log_scale:bool = False):
-        pass
+        fig, ax = plt.subplots(figsize =figsize)
+
+        ax.plot(self.output[:,0], label = 'Theta')
+        ax.plot(self.output[:,1], label = 'pi')
+        ax.plot(self.output[:,2], label = 'ps')
+        ax.plot(self.output[:,3], label = 'S', ls = '--')
+        ax.plot(self.output[:,4],  label = 'I', ls = '--')
+        ax.plot(1 - (self.output[:,4]+self.output[:,3]), alpha = 0.5, label= 'R', ls = '--')
+        ax.set_ylabel('Proportion of Nodes')
+        if log_scale:
+            ax.set_yscale('log')
+        plt.legend(title = 'Compartment')
+        plt.show()
     
     
