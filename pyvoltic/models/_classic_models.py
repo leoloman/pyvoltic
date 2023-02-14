@@ -47,9 +47,9 @@ class SIRNE(VolzFramework):
         """
         r0 = self.calc_r0(r, mu, rho)
 
-        time = list(range(timestemps))
+        time = list(range(timesteps))
 
-        inital_state = self._set_initial_states(epsilon)
+        initial_state = self._set_initial_states(epsilon)
 
         output = sp_int.odeint(
             self.ode,
@@ -133,7 +133,7 @@ class SIRSR(VolzFramework):
 
         time = list(range(timesteps))
 
-        inital_state = self._set_initial_states(epsilon)
+        initial_state = self._set_initial_states(epsilon)
 
         output = sp_int.odeint(
             self.ode,
