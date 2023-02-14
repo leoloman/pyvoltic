@@ -1,6 +1,5 @@
 import scipy.integrate as sp_int
 import matplotlib.pyplot as plt
-import SimulatiViz as sv
 import numpy as np
 import networkx as nx
 import types
