@@ -1,7 +1,7 @@
 import scipy.integrate as sp_int
 import numpy as np
 from pyvoltic.results import EBCMResults, DFDResults, NEResults, SRResults
-from pyvolitc.classes import VolzFramework
+from pyvoltic.classes import VolzFramework
 
 import math
 
