@@ -13,14 +13,11 @@ This package aims to help people make use of these very powerful models by allow
 
 This package would not have been possible without the incredible work done by Erik Volz (https://github.com/emvolz), Lauren Ancel Meyers (https://scholar.google.com/citations?user=KKiQaBoAAAAJ&hl=en) and Joel C Miller (https://github.com/joelmiller). It is encouraged to follow and read their papers to better understand these models.
 
-The Volz Static Random Network Model paper can be read here:
-    - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7080148/pdf/285_2007_Article_116.pdf
+> [Volz Static Random Network Model](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7080148/pdf/285_2007_Article_116.pdf)
     
-The Volz Mercer Neighbour Exchange Network Model paper can be read here:
-    - https://royalsocietypublishing.org/doi/10.1098/rspb.2007.1159
+> [Volz Mercer Neighbour Exchange Network Model](https://royalsocietypublishing.org/doi/10.1098/rspb.2007.1159)
 
-The intro to Edge Based Compartmental Model Framework can found here:
-    - https://arxiv.org/pdf/1106.6320
+> [Edge Based Compartmental Model Framework can found here](https://arxiv.org/pdf/1106.6320)
 
 Further Reading:
 To learn more about creating these systems the following books have been incredibly useful in developing understanding:
