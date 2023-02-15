@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name = 'pyvoltic',
-      url = 'https://github.com/leoloman/pyvoltic'.
+      url = 'https://github.com/leoloman/pyvoltic',
       author = 'Leo Loman',
       author_email = 'leo.loman@outlook.com',
       packages = find_packages(where = 'pyvoltic'),
