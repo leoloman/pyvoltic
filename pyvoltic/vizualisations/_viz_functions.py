@@ -1,3 +1,6 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
 def NE_multi_cumulative_incidence(output_list:list, title:str , label_list:list, line_style:list, color = 'black', figsize:tuple= (12,5),):
     """
     Plotting function to compare the cumulative incidence of different simulation results from the NE simulation
@@ -19,9 +22,11 @@ def NE_multi_cumulative_incidence(output_list:list, title:str , label_list:list,
         ax.plot(1 - (output[:,5]+output[:,3]) + output[:,5], 
                 alpha = 0.5, c = color,label= label_list[i], ls = line_style[i])
     ax.set_title(title)
+    ax.set_ylim(0, 1.05)
+    plt.legend()
     plt.show()
     
-def SR_multi_cumulative_incidence(output_list:list, label_list:list, line_style:list, figsize:tuple= (12,5), color = 'black'):
+def SR_multi_cumulative_incidence(output_list:list,title:str,  label_list:list, line_style:list, figsize:tuple= (12,5), color = 'black'):
     """
     Plotting function to compare the cumulative incidence of different simulation results from the SR simulation
     
@@ -35,10 +40,36 @@ def SR_multi_cumulative_incidence(output_list:list, label_list:list, line_style:
     for output in output_list:
         if output.shape[1] != 5:
             raise ValueError('Incorrect Simulation Output, Results are derived from the SIRSR class')
-    fig, ax = plt.subplots(figsize =figsize)
+    fig, ax = plt.subplots(figsize = figsize)
     for i, output in enumerate(output_list):
         ax.plot(1 - (output[:,4]+output[:,3]) + output[:,4], 
                 alpha = 0.5, c = color,label= label_list[i], ls = line_style[i])
+    ax.set_title(title)
+    ax.set_ylim(0, 1.05)
+    plt.legend()
+    plt.show()
+    
+def EBCM_multi_cumulative_incidence(output_list:list,title:str,  label_list:list, line_style:list, figsize:tuple= (12,5), color = 'black'):
+    """
+    Plotting function to compare the cumulative incidence of different simulation results from the SR simulation
+    
+    args:
+        output_list: list[np.array] a list of results from the simulations
+        label_list: list[str] a list of strings to assign to each line in the legend
+        color: str 
+        line_style: list[str] a list of linestyles to assign to each line
+        figsize: tuple - size of the plot
+    """
+    for output in output_list:
+        if output.shape[1] != 4:
+            raise ValueError('Incorrect Simulation Output, Results are derived from the EBMC/MFSH class')
+    fig, ax = plt.subplots(figsize = figsize)
+    for i, output in enumerate(output_list):
+        ax.plot(output[:,1]+output[:,3], 
+                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i])
+    ax.set_title(title)
+    ax.set_ylim(0, 1.05)
+    plt.legend()
     plt.show()
 
 ##########################
