@@ -1,2 +1,11 @@
 [build-system]
 requires = ["setuptools", "wheel"]
+
+exclude = '''
+/(
+  | \.git          # root of the project
+  | build
+  | dist
+  | doc
+)/
+'''
