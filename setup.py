@@ -11,5 +11,5 @@ setup(name = 'pyvoltic',
       classifiers = ['Programming Langyage :: Python'],
       license='MIT',
       description='A framework for the Edge Based Compartmental Model (Volz Miller) equations',
-      long_description=open('README.txt').read()
+      long_description=open('README.md').read()
 )      
