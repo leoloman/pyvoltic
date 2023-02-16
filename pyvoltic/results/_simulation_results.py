@@ -17,8 +17,8 @@ class EBCMResults(SimResults):
         plt.tight_layout()
         plt.legend()
     
-    def cumulative_incidence(self, title= 'Cumulative Incidence', figsize  = (7,5)):
-        fig = plt.figure(figsize = figsize, dpi = 150)
+    def cumulative_incidence(self, title= 'Cumulative Incidence', figsize:tuple = (12,5)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
         ax = plt.subplot(ylim = [-0.05, 1.05])
         ax.plot(self.output[:,1]+self.output[:,3], linestyle = 'dashed', color= 'grey',
                linewidth = 2)
@@ -82,7 +82,7 @@ class NEResults(SimResults):
             ax.set_yscale('log')
 
         plt.figtext(0.8, 0.01, caption, wrap=True, horizontalalignment='center', fontsize=12)
-        plt.legend(title = 'Compartment')
+        plt.legend()
         plt.show()
     
     
@@ -104,9 +104,11 @@ class NEResults(SimResults):
                 alpha = 0.5, 
                 c = color,
                 label= label, 
-                ls = linestyle)
-        ax.legend()
+                ls = linestyle, linewidth = 2)
+        # ax.legend()
         ax.set_title(title)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
         plt.show()
         
     def full_simulation(self, title: str = '', figsize:tuple = (12,5), log_scale:bool = False):
@@ -116,18 +118,20 @@ class NEResults(SimResults):
         ax.plot(self.output[:,1], label = 'Prob Sus ego to infectious alter',
                 )#change of p_infec 
         ax.plot(self.output[:,2], label = 'Prob Sus ego to Sus alter')# change of p_suscep 
-        ax.plot(self.output[:,3], label = 'Frac S', ls = '--') #proportion of S
+        ax.plot(self.output[:,3], label = 'Frac S',color = '#003087', ls = '--') #proportion of S
         ax.plot(self.output[:,4], label = 'Infectious ego with an alter of any state')# change of M_I 
-        ax.plot(self.output[:,5], alpha = 0.5, label = 'Frac I', ls = '--') # change of I
+        ax.plot(self.output[:,5], alpha = 0.5, label = 'Frac I',  color = 'red',ls = '--') # change of I
         # recovered
-        ax.plot(1 - (self.output[:,5]+self.output[:,3]), alpha = 0.5, label= 'Frac R', ls = '--')
-        ax.plot(1 - (self.output[:,5]+self.output[:,3]) + self.output[:,5], alpha = 0.5, c = 'black',label= 'CS Incidennce', ls = ':')
-        ax.legend(title = 'Compartments', bbox_to_anchor = (1.1,0.8))
+        ax.plot(1 - (self.output[:,5]+self.output[:,3]), alpha = 0.5, label= 'Frac R', color = '#33A02C',ls = '--')
+        ax.plot(1 - (self.output[:,5]+self.output[:,3]) + self.output[:,5], alpha = 0.5, c = 'black',label= 'CS Incidence', ls = ':')
+        ax.legend(bbox_to_anchor = (1.1,0.8))
         ax.set_title(title)
         ax.set_ylabel('Proportion')
         ax.set_xlabel('Time Step')
         if log_scale:
             ax.set_yscale('log')
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
         plt.show()
         
         
@@ -173,8 +177,10 @@ class SRResults(SimResults):
                 label= label, 
                 ls = linestyle)
         ax.legend()
-        ax.set_ylim(0, 1.05)
         ax.set_title(title)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        
         plt.show()
         
     def full_simulation(self, title: str = '', figsize:tuple = (12,5), log_scale:bool = False):
@@ -190,7 +196,10 @@ class SRResults(SimResults):
         ax.set_ylabel('Proportion of Nodes')
         if log_scale:
             ax.set_yscale('log')
-        plt.legend(title = 'Compartment')
+        plt.legend()
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        
         plt.show()
     
     
