@@ -5,23 +5,44 @@ from pyvoltic.classes import SimResults
 
 class EBCMResults(SimResults):
     
-    def SIR_graph(self):
-        plt.plot(self.output[:,1], label = 'R')
-        plt.plot(self.output[:,2], label = 's')
-        plt.plot(self.output[:,3], label = 'I')
+    def SIR_graph(self, figsize  = (7,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,1], label = 'R', color = '#33A02C', linewidth = 2)
+        ax.plot(self.output[:,2], label = 'S', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,3], label = 'I', color = 'red', linewidth = 2)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        plt.tight_layout()
         plt.legend()
     
-    def cumulative_incidence(self):
-        plt.plot(self.output[:,1]+self.output[:,3], label = 'R')
-        plt.ylim(0, 1.05)
-        plt.legend()
+    def cumulative_incidence(self, title= 'Cumulative Incidence', figsize  = (7,5)):
+        fig = plt.figure(figsize = figsize, dpi = 150)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,1]+self.output[:,3], linestyle = 'dashed', color= 'grey',
+               linewidth = 2)
+        ax.set_ylim(-0.05, 1.05)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        ax.set_title(title)
+        plt.tight_layout()
+        plt.rc('xtick', labelsize = 'small')
+        # plt.legend()
+        plt.show()
     
-    
-    def full_simulation(self):
-        plt.plot(self.output[:,0], label = 'theta')
-        plt.plot(self.output[:,1], label = 'R')
-        plt.plot(self.output[:,2], label = 'S')
-        plt.plot(self.output[:,3], label = 'I')
+    def full_simulation(self,figsize  = (6,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        plt.plot(self.output[:,0], label = r'$\theta$', linestyle = 'dashed', color = 'grey', linewidth = 2)
+        plt.plot(self.output[:,1], label = 'R', color = '#33A02C', linewidth = 2)
+        plt.plot(self.output[:,2], label = 'S',color = '#003087', linewidth = 2)
+        plt.plot(self.output[:,3], label = 'I', color = 'red', linewidth = 2)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        plt.tight_layout()
         plt.legend()
         
         
@@ -43,17 +64,18 @@ class NEResults(SimResults):
                  figsize:tuple = (12,5), log_scale:bool = False,
                 caption = ''):
     
-        fig, ax = plt.subplots(figsize =figsize)
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
         if (N == None):
-            ax.plot(self.output[:,3], label = 'S')
-            ax.plot(self.output[:,5],  label = 'I')
-            ax.plot(1 - (self.output[:,5]+self.output[:,3]), alpha = 0.5, label= 'R')
+            ax.plot(self.output[:,3], label = 'S',color = '#003087')
+            ax.plot(self.output[:,5],  label = 'I',  color = 'red')
+            ax.plot(1 - (self.output[:,5]+self.output[:,3]), alpha = 0.5, label= 'R', color = '#33A02C')
             ax.set_ylabel('Proportion of Nodes')
 
         elif (isinstance(N, int)):
-            ax.plot(self.output[:,3]*N, label = 'S')
-            ax.plot(self.output[:,5]*N,  label = 'I')
-            ax.plot(N - ((self.output[:,5]*N)+(self.output[:,3]*N)), alpha = 0.5, label= 'R')
+            ax.plot(self.output[:,3]*N, label = 'S', color = '#003087')
+            ax.plot(self.output[:,5]*N,  label = 'I',  color = 'red')
+            ax.plot(N - ((self.output[:,5]*N)+(self.output[:,3]*N)), alpha = 0.5, label= 'R', color = '#33A02C')
             ax.set_ylabel('Number of Nodes')
 
         if log_scale:
@@ -76,19 +98,20 @@ class NEResults(SimResults):
             figsize:tuple - plot size
         """
         
-        fig, ax = plt.subplots(figsize =figsize)
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
         ax.plot(1 - (self.output[:,5]+self.output[:,3]) + self.output[:,5], 
                 alpha = 0.5, 
                 c = color,
                 label= label, 
                 ls = linestyle)
         ax.legend()
-        ax.set_ylim(0, 1.05)
         ax.set_title(title)
         plt.show()
         
     def full_simulation(self, title: str = '', figsize:tuple = (12,5), log_scale:bool = False):
-        fig, ax = plt.subplots(figsize =figsize)
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
         ax.plot(self.output[:,0], alpha =0.5, label = 'Fraction degree 1 nodes sus') # change of theta
         ax.plot(self.output[:,1], label = 'Prob Sus ego to infectious alter',
                 )#change of p_infec 
@@ -111,17 +134,18 @@ class NEResults(SimResults):
 class SRResults(SimResults):
     
     def SIR_graph(self,  N:int = None, title:str = '', figsize:tuple = (12,5), log_scale:bool = False):
-        fig, ax = plt.subplots(figsize =figsize)
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
         if (N == None):
-            ax.plot(self.output[:,3], label = 'S')
-            ax.plot(self.output[:,4],  label = 'I')
-            ax.plot(1 - (self.output[:,4]+self.output[:,3]), alpha = 0.5, label= 'R')
+            ax.plot(self.output[:,3], label = 'S',color = '#003087')
+            ax.plot(self.output[:,4],  label = 'I',   color = 'red')
+            ax.plot(1 - (self.output[:,4]+self.output[:,3]), alpha = 0.5, label= 'R', color = '#33A02C')
             ax.set_ylabel('Proportion of Nodes')
 
         elif (isinstance(N, int)):
-            ax.plot(self.output[:,3]*N, label = 'S')
-            ax.plot(self.output[:,5]*N,  label = 'I')
-            ax.plot(N - ((self.output[:,5]*N)+(self.output[:,3]*N)), alpha = 0.5, label= 'R')
+            ax.plot(self.output[:,3]*N, label = 'S',color = '#003087')
+            ax.plot(self.output[:,5]*N,  label = 'I',   color = 'red')
+            ax.plot(N - ((self.output[:,5]*N)+(self.output[:,3]*N)), alpha = 0.5, label= 'R', color = '#33A02C')
             ax.set_ylabel('Number of Nodes')
         if log_scale:
             ax.set_yscale('log')
@@ -141,7 +165,8 @@ class SRResults(SimResults):
             label: str - label on legend
             figsize:tuple - plot size
         """
-        fig, ax = plt.subplots(figsize =figsize)
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
         ax.plot(1 - (self.output[:,4]+self.output[:,3]) + self.output[:,4], 
                 alpha = 0.5, 
                 c = color,
@@ -153,14 +178,15 @@ class SRResults(SimResults):
         plt.show()
         
     def full_simulation(self, title: str = '', figsize:tuple = (12,5), log_scale:bool = False):
-        fig, ax = plt.subplots(figsize =figsize)
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
 
-        ax.plot(self.output[:,0], label = 'Theta')
+        ax.plot(self.output[:,0], label = r'$\theta$')
         ax.plot(self.output[:,1], label = 'pi')
         ax.plot(self.output[:,2], label = 'ps')
-        ax.plot(self.output[:,3], label = 'S', ls = '--')
-        ax.plot(self.output[:,4],  label = 'I', ls = '--')
-        ax.plot(1 - (self.output[:,4]+self.output[:,3]), alpha = 0.5, label= 'R', ls = '--')
+        ax.plot(self.output[:,3], label = 'S', ls = '--', color = '#003087')
+        ax.plot(self.output[:,4],  label = 'I', ls = '--',   color = 'red')
+        ax.plot(1 - (self.output[:,4]+self.output[:,3]), alpha = 0.5, label= 'R', ls = '--', color = '#33A02C')
         ax.set_ylabel('Proportion of Nodes')
         if log_scale:
             ax.set_yscale('log')

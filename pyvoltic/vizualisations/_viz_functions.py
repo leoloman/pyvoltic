@@ -17,12 +17,14 @@ def NE_multi_cumulative_incidence(output_list:list, title:str , label_list:list,
         if output.shape[1] != 6:
             raise ValueError('Incorrect Simulation Output, Results are derived from the SIRNE class')
             
-    fig, ax = plt.subplots(figsize =figsize)
+    fig = plt.figure(figsize = figsize, dpi = 200)
+    ax = plt.subplot(ylim = [-0.05, 1.05])
     for i, output in enumerate(output_list):
         ax.plot(1 - (output[:,5]+output[:,3]) + output[:,5], 
-                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i])
+                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i], linewidth = 2)
     ax.set_title(title)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylabel('Proportion of Cumulative Incidence')
+    ax.set_xlabel('Timestep')
     plt.legend()
     plt.show()
     
@@ -40,12 +42,14 @@ def SR_multi_cumulative_incidence(output_list:list,title:str,  label_list:list, 
     for output in output_list:
         if output.shape[1] != 5:
             raise ValueError('Incorrect Simulation Output, Results are derived from the SIRSR class')
-    fig, ax = plt.subplots(figsize = figsize)
+    fig = plt.figure(figsize = figsize, dpi = 200)
+    ax = plt.subplot(ylim = [-0.05, 1.05])
     for i, output in enumerate(output_list):
         ax.plot(1 - (output[:,4]+output[:,3]) + output[:,4], 
-                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i])
+                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i], linewidth = 2)
     ax.set_title(title)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylabel('Proportion of Cumulative Incidence')
+    ax.set_xlabel('Timestep')
     plt.legend()
     plt.show()
     
@@ -63,12 +67,14 @@ def EBCM_multi_cumulative_incidence(output_list:list,title:str,  label_list:list
     for output in output_list:
         if output.shape[1] != 4:
             raise ValueError('Incorrect Simulation Output, Results are derived from the EBMC/MFSH class')
-    fig, ax = plt.subplots(figsize = figsize)
+    fig = plt.figure(figsize = figsize, dpi = 200)
+    ax = plt.subplot(ylim = [-0.05, 1.05])
     for i, output in enumerate(output_list):
         ax.plot(output[:,1]+output[:,3], 
-                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i])
+                alpha = 0.5, c = color,label= label_list[i], ls = line_style[i], linewidth = 2)
     ax.set_title(title)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylabel('Proportion of Cumulative Incidence')
+    ax.set_xlabel('Timestep')
     plt.legend()
     plt.show()
 
