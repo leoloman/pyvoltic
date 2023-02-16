@@ -25,6 +25,9 @@ def NE_multi_cumulative_incidence(output_list:list, title:str , label_list:list,
     ax.set_title(title)
     ax.set_ylabel('Proportion of Cumulative Incidence')
     ax.set_xlabel('Timestep')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+        
     plt.legend()
     plt.show()
     
@@ -50,6 +53,9 @@ def SR_multi_cumulative_incidence(output_list:list,title:str,  label_list:list, 
     ax.set_title(title)
     ax.set_ylabel('Proportion of Cumulative Incidence')
     ax.set_xlabel('Timestep')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+        
     plt.legend()
     plt.show()
     
@@ -76,6 +82,9 @@ def EBCM_multi_cumulative_incidence(output_list:list,title:str,  label_list:list
     ax.set_ylabel('Proportion of Cumulative Incidence')
     ax.set_xlabel('Timestep')
     plt.legend()
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+        
     plt.show()
 
 ##########################
