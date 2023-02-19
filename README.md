@@ -8,6 +8,7 @@ This is a framework for the Volz Miller equations which is an approach to static
 - Edge Based Compartmental Model (EBCM): Static Configuration Model Network
 - EBCM: Mean Field Social Heterogeneity
 - EBCM: Dyanmic Fixed Degree
+- EBCM: SEIR Static Random (Alota et al, 2020)
 
 This package aims to help people make use of these very powerful models by allowing the user to pass their own probability generating functions, as well as make use of those which are included in the package. 
 
