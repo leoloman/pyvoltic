@@ -53,7 +53,8 @@ Continue Implementing Edge Based Compartmental Models:
 > https://arxiv.org/abs/1106.6319
 >
 > https://arxiv.org/abs/1106.6344
-
+>
+> [Pairwise EBCM](https://www.mmnp-journal.org/articles/mmnp/pdf/2014/02/mmnp201492p58.pdf)
 
 ## Dependencies
 
