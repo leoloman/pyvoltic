@@ -57,6 +57,115 @@ class DFDResults(SimResults):
     def full_simulation(self):
         pass
     
+    
+        
+class SEIRSRResults(SimResults):
+    
+    def SIR_graph(self, figsize  = (7,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,6], label = 'S', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'E', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,5], label = 'I', color = 'red', linewidth = 2)
+       
+        ax.plot(self.output[:,7], label = 'R', color = '#33A02C', linewidth = 2)
+        ax.legend()
+        plt.show()
+        
+    def SEIR_theta_graph(self, figsize  = (7,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,0], label = 'theta', linestyle = '--', color = 'purple', linewidth = 2)
+        ax.plot(self.output[:,6], label = 'S', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'E', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,5], label = 'I', color = 'red', linewidth = 2)
+        
+        ax.plot(self.output[:,7], label = 'R', color = '#33A02C', linewidth = 2)
+        
+        ax.legend()
+        plt.show()
+    
+    def cumulative_incidence(self, title= 'Cumulative Incidence', figsize:tuple = (12,5)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,5]+self.output[:,7], linestyle = 'dashed', color= 'grey',
+               linewidth = 2)
+        ax.set_ylim(-0.05, 1.05)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        ax.set_title(title)
+        plt.tight_layout()
+        plt.rc('xtick', labelsize = 'small')
+        # plt.legend()
+        plt.show()
+    
+    def full_simulation(self,figsize  = (6,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,3], label = 'pi_{S}', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,2], label = 'pi_{E}', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,1], label = 'pi_{I}', color = 'red', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'E',linestyle = '--', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,5], label = 'I', linestyle = '--',color = 'red', linewidth = 2)
+        ax.plot(self.output[:,6], label = 'S',linestyle = '--', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,7], label = 'R',linestyle = '--', color = '#33A02C', linewidth = 2)
+        ax.plot(self.output[:,0], label = 'theta',  color = 'purple', linewidth = 2)
+        ax.legend()
+        plt.show()
+        
+        
+class _SEIRYResults(SimResults):
+    
+    def SIR_graph(self, figsize  = (7,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])        
+        ax.plot(self.output[:,5], label = 'S', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,3], label = 'E', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'I', color = 'red', linewidth = 2)
+        ax.plot(self.output[:,6], label = 'R', color = '#33A02C', linewidth = 2)
+        ax.legend()
+        plt.show()
+        
+    def SEIR_theta_graph(self, figsize  = (7,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,0], label = 'theta', linestyle = '--', color = 'purple', linewidth = 2)
+        ax.plot(self.output[:,5], label = 'S', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,3], label = 'E', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'I', color = 'red', linewidth = 2)
+        ax.plot(self.output[:,6], label = 'R', color = '#33A02C', linewidth = 2)
+        ax.legend()
+        plt.show()
+    
+    def cumulative_incidence(self, title= 'Cumulative Incidence', figsize:tuple = (12,5)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:3]+self.output[:,4], linestyle = 'dashed', color= 'grey',
+               linewidth = 2)
+        ax.set_ylim(-0.05, 1.05)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        ax.set_title(title)
+        plt.tight_layout()
+        plt.rc('xtick', labelsize = 'small')
+        # plt.legend()
+        plt.show()
+    
+    def full_simulation(self,figsize  = (6,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,2], label = 'phi E', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,1], label = 'phi I', color = 'red', linewidth = 2)
+        ax.plot(self.output[:,3], label = 'E',linestyle = '--', color = 'lightblue', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'I', linestyle = '--',color = 'red', linewidth = 2)
+        ax.plot(self.output[:,5], label = 'S',linestyle = '--', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,6], label = 'R',linestyle = '--', color = '#33A02C', linewidth = 2)
+        ax.plot(self.output[:,0], label = 'theta',  color = 'purple', linewidth = 2)
+        ax.legend()
+        plt.show()
+    
 
 class NEResults(SimResults):
     
