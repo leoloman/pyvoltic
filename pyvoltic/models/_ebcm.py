@@ -132,12 +132,15 @@ class MFSHEBCM(VolzFramework):
         return y
 
 
-class DynamicFixedDegree(VolzFramework):
+class _DynamicFixedDegree(VolzFramework):
 
     """
+    The Dynamic Fixed Degree is equivalent to the SIRNE model, it interpolates between a regular Configuration Model and the Mean Field Social Hetergoenity Model. Nodes are assigned degree $k$ as before and pairs stubs randomly. As time progresses, edges break, the freed stub immediatley join with stubs from other edges that break. A process called edge swapping. The rate an edge breaks is $\eta$
+    
     https://arxiv.org/pdf/1106.6320.pdf page 8
+    
     """
-
+    __doc__ += VolzFramework.__doc__
     def _set_initial_states(self, epsilon: float, eta: float):
         """
         Set the initial states
@@ -147,9 +150,9 @@ class DynamicFixedDegree(VolzFramework):
         pi_S = (theta * self.calc_g1(theta)) / self.calc_g1(1)
         pi_R = 0
         pi_I = 1 - pi_S - pi_R
-        psi_S = eta * pi_R
-        psi_I = eta * pi_I
-        return [theta, psi_I, pi_S, 0, 0]  # psi i  # psi s  # pi r  # r
+        psi_S = eta *theta* pi_S
+        psi_I = eta * theta* pi_I
+        return [theta, psi_I, psi_S, 0, 0]  # psi i  # psi s  # pi r  # r
 
     def run_simulation(self, beta: float, eta: float, gamma: float, epsilon: float, timesteps: int):
         """
@@ -178,7 +181,7 @@ class DynamicFixedDegree(VolzFramework):
         
         # implement DFDResults
         # add all aspects of the compartments
-        return output
+        return DFDResults(output, dict(beta = beta, eta = eta, gamma = gamma), None)
         # return DFDResults(output, dict(beta = beta, eta = eta, gamma = gamma, epsilon = epsilon), r0
         # add susceptible
         # output = np.hstack((output, np.array([[self.calc_g(x)] for x in output[:,0]])))
@@ -197,13 +200,13 @@ class DynamicFixedDegree(VolzFramework):
         # x[3] pi r
         # x[4] r
         y = list(range(5))
-
+        # theta
         y[0] = -beta * x[1]
 
         pi_S = (x[0] * calc_g1(x[0])) / (calc_g1(1))
 
         pi_I = 1 - x[3] - pi_S
-
+        # pi R
         y[3] = gamma * pi_I
 
         y[2] = (
