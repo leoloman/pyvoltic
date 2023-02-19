@@ -1,8 +1,5 @@
 import scipy.integrate as sp_int
-import matplotlib.pyplot as plt
 import numpy as np
-import networkx as nx
-import types
 
 from pyvoltic.classes import VolzFramework
 from pyvoltic.results import SRResults, NEResults
