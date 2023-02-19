@@ -48,14 +48,48 @@ class EBCMResults(SimResults):
         
 class DFDResults(SimResults):
     
-    def SIR_graph(self):
-        pass
+    def SIR_graph(self, figsize  = (7,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,5], label = 'S', color = '#003087', linewidth = 2)
+        ax.plot(self.output[:,6], label = 'I', color = 'red', linewidth = 2)
+        ax.plot(self.output[:,4], label = 'R', color = '#33A02C', linewidth = 2)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        plt.tight_layout()
+        plt.legend()
     
-    def cumulative_incidence(self):
-        pass
+    def cumulative_incidence(self, title= 'Cumulative Incidence', figsize:tuple = (12,5)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        ax.plot(self.output[:,6]+self.output[:,4], linestyle = 'dashed', color= 'grey',
+               linewidth = 2)
+        ax.set_ylim(-0.05, 1.05)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        ax.set_title(title)
+        plt.tight_layout()
+        plt.rc('xtick', labelsize = 'small')
+        # plt.legend()
+        plt.show()
     
-    def full_simulation(self):
-        pass
+    def full_simulation(self,figsize  = (6,3)):
+        fig = plt.figure(figsize = figsize, dpi = 200)
+        ax = plt.subplot(ylim = [-0.05, 1.05])
+        plt.plot(self.output[:,0], label = r'$\theta$', linestyle = 'dashed', color = 'grey', linewidth = 2)
+        plt.plot(self.output[:,1], label = r'$\phi_{I}$',  linewidth = 2)
+        plt.plot(self.output[:,2], label = r'$\phi_{S}$',  linewidth = 2)
+        plt.plot(self.output[:,3], label = r'$\pi_{R}$',  linewidth = 2)
+        plt.plot(self.output[:,4], label = 'R', color = '#33A02C', linestyle = 'dashed', linewidth = 2)
+        plt.plot(self.output[:,5], label = 'S',color = '#003087', linestyle = 'dashed', linewidth = 2)
+        plt.plot(self.output[:,6], label = 'I', color = 'red', linestyle = 'dashed', linewidth = 2)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_ylabel('Proportion\n')
+        plt.tight_layout()
+        plt.legend()
     
     
         
