@@ -46,7 +46,7 @@ The class structure VolzFramework is designed to be a flexible approach in imple
 
 Future Implementation Plans:
 
-pyABC - Sequential Monte Carlo to find the parameter space which bests fits data
+Implement an optimiser to find best fit for data
 
 Continue Implementing Edge Based Compartmental Models:
 > https://royalsocietypublishing.org/doi/10.1098/rsif.2011.0403
@@ -66,6 +66,8 @@ Continue Implementing Edge Based Compartmental Models:
 - [scipy](https://scipy.org)
 
 # License
+
+MIT
 
 # Contribution
 
