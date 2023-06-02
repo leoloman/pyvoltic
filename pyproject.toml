@@ -25,7 +25,6 @@ dependencies = [
 abc = ["pyabc"]
 
 [project.scripts]
-my-script = 
 exclude = '''
 /(
   | \.git          # root of the project
