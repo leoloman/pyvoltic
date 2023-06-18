@@ -4,7 +4,7 @@ import numpy as np
 import networkx as nx
 import types
 from abc import ABC, abstractmethod
-import pyvoltic.probability_generating_functions as pgf
+from ..probability_generating_functions import get_Pk, get_PGF, get_PGF_first_derivate, get_PGF_second_derivate
 
 class VolzFramework(ABC):
     """
@@ -28,15 +28,15 @@ class VolzFramework(ABC):
     ):
        
         if isinstance(G, nx.Graph):
-            degree_dist_dev_G = pgf.get_Pk(G)
-            self.calc_g = pgf.get_PGF(degree_dist_dev_G)
-            self.calc_g1 = pgf.get_PGF_first_derivate(degree_dist_dev_G)
-            self.calc_g2 = pgf.get_PGF_second_derivate(degree_dist_dev_G)
+            degree_dist_dev_G = get_Pk(G)
+            self.calc_g = get_PGF(degree_dist_dev_G)
+            self.calc_g1 = get_PGF_first_derivate(degree_dist_dev_G)
+            self.calc_g2 = get_PGF_second_derivate(degree_dist_dev_G)
 
         elif isinstance(degree_dist, dict):
-            self.calc_g = pgf.get_PGF(degree_dist)
-            self.calc_g1 = pgf.get_PGF_first_derivate(degree_dist)
-            self.calc_g2 = pgf.get_PGF_second_derivate(degree_dist)
+            self.calc_g = get_PGF(degree_dist)
+            self.calc_g1 = get_PGF_first_derivate(degree_dist)
+            self.calc_g2 = get_PGF_second_derivate(degree_dist)
 
         elif (
             isinstance(calc_g, types.FunctionType)

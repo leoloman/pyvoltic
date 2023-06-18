@@ -1,8 +1,8 @@
 import scipy.integrate as sp_int
 import numpy as np
 
-from pyvoltic.classes import VolzFramework
-from pyvoltic.results import SRResults, NEResults
+from ..classes import VolzFramework
+from ..results import SRResults, NEResults
 
 
 class SIRNE(VolzFramework):

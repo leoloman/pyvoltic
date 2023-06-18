@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from pyvoltic.classes import SimResults
+from ..classes import SimResults
 
 
 class EBCMResults(SimResults):

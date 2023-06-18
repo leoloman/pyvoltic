@@ -4,8 +4,8 @@ This script is for models which are not written by Volz / Miller but could be us
 import scipy.integrate as sp_int
 import numpy as np
 
-from pyvoltic.classes import VolzFramework
-from pyvoltic.results import SEIRSRResults
+from ..classes import VolzFramework
+from ..results import SEIRSRResults
 
 
 class SEIRSR(VolzFramework):
