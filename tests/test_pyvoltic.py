@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 import sys
-sys.path.append('../')
+# sys.path.append('../')
 from pyvoltic.models import SIRNE, EBCM, SIRSR, DynamicFixedDegree, MFSHEBCM, SEIRSR
 from pyvoltic.probability_generating_functions import poisson_calc_g, poisson_calc_g1, poisson_calc_g2
 
