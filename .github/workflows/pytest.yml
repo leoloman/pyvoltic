@@ -13,7 +13,7 @@ jobs:
     - name: install dependencies
       run: |
         python3 -m pip install --upgrade pip
-        pip install -e .
+        pip install .
     - name: test with pytest
       run: |
         python3 -m pytest -v tests/test_pyvoltic.py
