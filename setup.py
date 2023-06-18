@@ -4,7 +4,6 @@ setup(name = 'pyvoltic',
       url = 'https://github.com/leoloman/pyvoltic',
       author = 'Leo Loman',
       author_email = 'leo.loman@outlook.com',
-      # packages = find_packages(where = 'pyvoltic'),
       packages = ['pyvoltic', 'pyvoltic.classes', 'pyvoltic.models','pyvoltic.probability_generating_functions',
       'pyvoltic.vizualisations','pyvoltic.results'],
       install_requires = ['numpy', 'networkx', 'matplotlib', 'scipy'],
@@ -14,4 +13,5 @@ setup(name = 'pyvoltic',
       license='MIT',
       description='A framework for the Edge Based Compartmental Model (Volz Miller) equations',
       long_description=open('README.md').read()
+      extras_require = {'pyabc':['pyabc']}
 )      
