@@ -1,6 +1,4 @@
-__import__("pkg_resources").declare_namespace(__name__)
-
-__version__ = "0.0.1"
+from version import __version__
 
 from .models import EBCM, SIRNE, SIRSR
 from .probability_generating_functions import (
@@ -32,4 +30,5 @@ __all__ = [
     "get_PGF",
     "get_PGF_first_derivate",
     "get_PGF_second_derivate",
+    "__version__",
 ]
