@@ -9,7 +9,7 @@ ignore = [ "E501" ] # ignore line length
 
 target-version = "py37"
 
-[tool.ruff.flak8-quotes]
+[tool.ruff.flake8-quotes]
 docstring-quotes = "double"
 inline-quotes = "double"
 multiline-quotes = "double"
