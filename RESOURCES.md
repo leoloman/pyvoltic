@@ -55,7 +55,7 @@ https://arxiv.org/pdf/1408.2701.pdf
 ## Python Packages
 [Epidemics on Networks](https://github.com/springer-math/Mathematics-of-Epidemics-on-Networks)
 
-## R
+## R using pomp and odin
 [spam.mpxv - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/spam.mpxv)
 
 [mpoxspam - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/mpoxspam)

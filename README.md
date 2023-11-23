@@ -3,14 +3,14 @@
 What is it?
 
 This is a framework for the Volz Miller equations which is an approach to static or dynamic modelling of disease on a heterogenous network. At the moment the package contains the following models;
-- Volz Static Random Network Model  
+- Volz Static Random Network Model
 - Volz Meyers Neighbour Exchange Network Model
 - Edge Based Compartmental Model (EBCM): Static Configuration Model Network
 - EBCM: Mean Field Social Heterogeneity
 - EBCM: Dyanmic Fixed Degree
 - EBCM: SEIR Static Random (Alota et al, 2020)
 
-This package aims to help people make use of these very powerful models by allowing the user to pass their own probability generating functions, as well as make use of those which are included in the package. 
+This package aims to help people make use of these very powerful models by allowing the user to pass their own probability generating functions, as well as make use of those which are included in the package.
 
 This package would not have been possible without the incredible work done by [Erik Volz](https://github.com/emvolz), [Lauren Ancel Meyers](https://scholar.google.com/citations?user=KKiQaBoAAAAJ&hl=en) and [Joel C Miller](https://github.com/joelmiller). It is encouraged to follow and read their papers to better understand these models.
 
@@ -23,7 +23,7 @@ This package would not have been possible without the incredible work done by [E
 Further Reading:
 To learn more about creating these systems the following books have been incredibly useful in developing understanding:
 > [Epidemics on Networks (book and python package)](https://link.springer.com/book/10.1007/978-3-319-50806-1)
-> 
+>
 > [Dynamical Systems on Networks](https://link.springer.com/book/10.1007/978-3-319-26641-1)
 >
 >[A primer on the use of probability generating functions in infectious disease modeling](https://arxiv.org/abs/1803.05136)
@@ -37,7 +37,7 @@ After this it is just running `model.run_simulation(kwargs)` passing the necessa
 > The SIR Compartments
 >
 > The Cumulative Incidence
-    
+
 When comparing different simulation runs there are also functions which can be used to compare each of the cumulative incidences.
 
 
@@ -52,7 +52,7 @@ Continue Implementing Edge Based Compartmental Models:
 > https://royalsocietypublishing.org/doi/10.1098/rsif.2011.0403
 >
 > https://arxiv.org/pdf/1106.6320
-> 
+>
 > https://arxiv.org/abs/1106.6319
 >
 > https://arxiv.org/abs/1106.6344
@@ -65,6 +65,13 @@ Continue Implementing Edge Based Compartmental Models:
 
 - [scipy](https://scipy.org)
 
+## R using pomp and odin
+Erik Volz and Lillith Whittles have recently developed 2 models using the ebcm framework, these models were built to model mpox:
+
+[spam.mpxv - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/spam.mpxv)
+
+[mpoxspam - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/mpoxspam)
+
 # License
 
 MIT
@@ -72,5 +79,3 @@ MIT
 # Contribution
 
 If you wish to contribute feel free to add an issue or create a pull request with the feature or correction which you intend and it will get looked at in due course.
-
-
