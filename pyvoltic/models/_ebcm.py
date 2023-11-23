@@ -1,9 +1,10 @@
-import scipy.integrate as sp_int
-import numpy as np
-from ..results import EBCMResults, DFDResults, NEResults, SRResults
-from ..classes import VolzFramework
-
 import math
+
+import numpy as np
+import scipy.integrate as sp_int
+
+from ..classes import VolzFramework
+from ..results import DFDResults, EBCMResults
 
 
 class EBCM(VolzFramework):
@@ -136,11 +137,13 @@ class DynamicFixedDegree(VolzFramework):
 
     """
     The Dynamic Fixed Degree is equivalent to the SIRNE model, it interpolates between a regular Configuration Model and the Mean Field Social Hetergoenity Model. Nodes are assigned degree $k$ as before and pairs stubs randomly. As time progresses, edges break, the freed stub immediatley join with stubs from other edges that break. A process called edge swapping. The rate an edge breaks is $\eta$
-    
+
     https://arxiv.org/pdf/1106.6320.pdf page 8
-    
+
     """
+
     __doc__ += VolzFramework.__doc__
+
     def _set_initial_states(self, epsilon: float, eta: float):
         """
         Set the initial states
@@ -150,11 +153,13 @@ class DynamicFixedDegree(VolzFramework):
         pi_S = (theta * self.calc_g1(theta)) / self.calc_g1(1)
         pi_R = 0
         pi_I = 1 - pi_S - pi_R
-        psi_S = theta* pi_S
-        psi_I =  theta* pi_I
+        psi_S = theta * pi_S
+        psi_I = theta * pi_I
         return [theta, psi_I, psi_S, 0, 0]  # psi i  # psi s  # pi r  # r
 
-    def run_simulation(self, beta: float, eta: float, gamma: float, epsilon: float, timesteps: int):
+    def run_simulation(
+        self, beta: float, eta: float, gamma: float, epsilon: float, timesteps: int
+    ):
         """
         Run a single simulation using scipy odeint function
         """
@@ -171,21 +176,21 @@ class DynamicFixedDegree(VolzFramework):
             time,
             args=(beta, eta, gamma, self.calc_g, self.calc_g1, self.calc_g2),
         )
-        
-        susceptible = np.array([[self.calc_g(x)] for x in output[:,0]])
-        
-        output = np.hstack((output, susceptible)) # susceptible col
-       
+
+        susceptible = np.array([[self.calc_g(x)] for x in output[:, 0]])
+
+        output = np.hstack((output, susceptible))  # susceptible col
+
         infected = np.array([[1 - x[4] - x[5]] for x in output])
-        output = np.hstack((output, infected ))
-        
-        pi_S = np.array([[x*self.calc_g1(x)/self.calc_g1(1)] for x in output[:,0]])
-        output = np.hstack((output, pi_S ))
+        output = np.hstack((output, infected))
+
+        pi_S = np.array([[x * self.calc_g1(x) / self.calc_g1(1)] for x in output[:, 0]])
+        output = np.hstack((output, pi_S))
         pi_I = np.array([[1 - x[3] - x[7]] for x in output])
-        output = np.hstack((output, pi_I ))
-        # implement DFDResults
+        output = np.hstack((output, pi_I))
+        # implement DFDResults
         # add all aspects of the compartments
-        return DFDResults(output, dict(beta = beta, eta = eta, gamma = gamma), None)
+        return DFDResults(output, dict(beta=beta, eta=eta, gamma=gamma), r0)
         # return DFDResults(output, dict(beta = beta, eta = eta, gamma = gamma, epsilon = epsilon), r0
         # add susceptible
         # output = np.hstack((output, np.array([[self.calc_g(x)] for x in output[:,0]])))

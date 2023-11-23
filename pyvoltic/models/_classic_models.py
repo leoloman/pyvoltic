@@ -1,8 +1,8 @@
-import scipy.integrate as sp_int
 import numpy as np
+import scipy.integrate as sp_int
 
 from ..classes import VolzFramework
-from ..results import SRResults, NEResults
+from ..results import NEResults, SRResults
 
 
 class SIRNE(VolzFramework):
