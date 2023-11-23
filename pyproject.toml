@@ -2,6 +2,7 @@
 requires = ["setuptools","Cython", "wheel", "numpy","scipy", "matplotlib", "networkx" ]
 
 [project]
+name = "pyvoltic"
 dependencies = [
     "matplotlib",
     "networkx"
