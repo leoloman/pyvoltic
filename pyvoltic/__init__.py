@@ -1,5 +1,3 @@
-from version import __version__
-
 from .models import EBCM, SIRNE, SIRSR
 from .probability_generating_functions import (
     get_PGF,
@@ -14,6 +12,7 @@ from .probability_generating_functions import (
     powerlaw_calc_g2,
     powerlaw_p_vec,
 )
+from .version import __version__
 
 __all__ = [
     "SIRNE",
