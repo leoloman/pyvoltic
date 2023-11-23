@@ -2,12 +2,6 @@
 requires = ["setuptools","Cython", "wheel", "numpy","scipy", "matplotlib", "networkx" ]
 build-backend = "setuptools.build_meta"
 
-[project]
-dependencies = [
-    "matplotlib",
-    "networkx"
-]
-
 [tool.ruff]
 # pycodestyle ('E') and Pyflakes ('F') and import sort ('I')
 select = [ "E", "F", "I"]
