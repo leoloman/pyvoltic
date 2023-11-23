@@ -1,10 +1,15 @@
-import scipy.integrate as sp_int
-import matplotlib.pyplot as plt
-import numpy as np
-import networkx as nx
 import types
 from abc import ABC, abstractmethod
-from ..probability_generating_functions import get_Pk, get_PGF, get_PGF_first_derivate, get_PGF_second_derivate
+
+import networkx as nx
+
+from ..probability_generating_functions import (
+    get_PGF,
+    get_PGF_first_derivate,
+    get_PGF_second_derivate,
+    get_Pk,
+)
+
 
 class VolzFramework(ABC):
     """
@@ -26,7 +31,6 @@ class VolzFramework(ABC):
         G=None,
         degree_dist=None,
     ):
-       
         if isinstance(G, nx.Graph):
             degree_dist_dev_G = get_Pk(G)
             self.calc_g = get_PGF(degree_dist_dev_G)
@@ -41,8 +45,8 @@ class VolzFramework(ABC):
         elif (
             isinstance(calc_g, types.FunctionType)
             & isinstance(calc_g1, types.FunctionType)
-            & (isinstance(calc_g2, types.FunctionType) | (calc_g2 == None))
-            & (probability_lambda == None)
+            & (isinstance(calc_g2, types.FunctionType) | (calc_g2 is None))
+            & (probability_lambda is None)
         ):
             self.calc_g = calc_g
             self.calc_g1 = calc_g1

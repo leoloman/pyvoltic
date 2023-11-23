@@ -5,7 +5,9 @@ build-backend = "setuptools.build_meta"
 [tool.ruff]
 # pycodestyle ('E') and Pyflakes ('F') and import sort ('I')
 select = [ "E", "F", "I"]
-ignore = [ "E501" ] # ignore line length
+ignore = [ "E501", # ignore line length
+           "E741" # ambiguous variable name
+            ]
 
 target-version = "py37"
 
