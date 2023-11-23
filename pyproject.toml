@@ -1,2 +1,24 @@
 [build-system]
 requires = ["setuptools","Cython", "wheel", "numpy","scipy" ]
+
+[project]
+dependencies = [
+    "matplotlib",
+    "networkx"
+]
+
+[tool.ruff]
+# pycodestyle ('E') and Pyflakes ('F') and import sort ('I')
+select = [ "E", "F", "I"]
+ignore = [ "E501" ] # ignore line length
+
+target-version = "py37"
+
+[tool.ruff.flak8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
