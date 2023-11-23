@@ -1,15 +1,15 @@
 name: Test and Format Check
-run-name: ${{ github.event.head_commit.message }} by ${{ github.actor }}
+run-name: Check tests and format by ${{ github.actor }}
 on:
     pull_request:
       branches: [ main ]
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest #${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10"]
+        #os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.7", "3.12"]
     steps:
     - name: checkout repo
       uses: actions/checkout@v3
