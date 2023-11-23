@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools","Cython", "wheel", "numpy","scipy", "matplotlib" ]
+requires = ["setuptools","Cython", "wheel", "numpy","scipy", "matplotlib", "networkx" ]
 
 [project]
 dependencies = [
