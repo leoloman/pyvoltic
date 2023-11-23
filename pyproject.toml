@@ -8,7 +8,7 @@ select = [ "E", "F", "I"]
 ignore = [ "E501", # ignore line length
            "E741" # ambiguous variable name
             ]
-exclude = [".md"]
+exclude = ["*.md"]
 
 target-version = "py37"
 
