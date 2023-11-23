@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools","Cython", "wheel", "numpy","scipy", "matplotlib", "networkx" ]
-
+build-backend = "setuptools.build_meta"
 [project]
 name = "pyvoltic"
 dependencies = [
