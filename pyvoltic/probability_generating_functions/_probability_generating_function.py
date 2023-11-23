@@ -6,8 +6,9 @@
 # the get_Pk function has been included so that the distribution of a given network can be obtained
 # You will have to obtain the first and second derivative of get_PGF yourself if you use this method
 
-import numpy as np
 from collections import Counter
+
+import numpy as np
 
 
 def get_Pk(G):
