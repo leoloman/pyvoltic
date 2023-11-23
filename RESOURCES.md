@@ -4,7 +4,7 @@ This is a page which will cover further resources to read more about the Edge Ba
 
 ## Papers:
 
-### Important 
+### Important
 [Volz Static Random Network Model](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7080148/pdf/285_2007_Article_116.pdf)
 
 [Volz Mercer Neighbour Exchange Network Model](https://royalsocietypublishing.org/doi/10.1098/rspb.2007.1159)
@@ -55,8 +55,10 @@ https://arxiv.org/pdf/1408.2701.pdf
 ## Python Packages
 [Epidemics on Networks](https://github.com/springer-math/Mathematics-of-Epidemics-on-Networks)
 
-## R 
-[spam.mpx - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/spam.mpxv)
+## R
+[spam.mpxv - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/spam.mpxv)
+
+[mpoxspam - Stochast Pair Approximation for Monkey Pox Outbreak by Erik Volz](https://github.com/mrc-ide/mpoxspam)
 
 
 ## Other
