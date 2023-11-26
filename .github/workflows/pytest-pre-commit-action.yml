@@ -1,0 +1,32 @@
+name: Test and Format Check
+run-name: Check tests and format by ${{ github.actor }}
+on:
+    pull_request:
+      branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest #${{ matrix.os }}
+    strategy:
+      matrix:
+        #os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.7", "3.12"]
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v3
+    - name: set up python ${{ matrix.python-version }}
+
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install scipy pytest pre-commit matplotlib
+        python -m pip install -e .
+    - name: test with pytest
+      run: |
+        python -m pytest -v tests/test_pyvoltic.py
+    - name: Run pre-commit yaml
+      run:  |
+        pre-commit run --all-files

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools","Cython", "wheel", "numpy","scipy", "matplotlib", "networkx" ]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+# pycodestyle ('E') and Pyflakes ('F') and import sort ('I')
+select = [ "E", "F", "I"]
+ignore = [ "E501", # ignore line length
+           "E741" # ambiguous variable name
+            ]
+exclude = ["*.md"]
+
+target-version = "py37"
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# Ignore `E402` (import violations) in all `__init__.py` files, and in select subdirectories.
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402"]
+"*.ipynb" = ["E402"]
